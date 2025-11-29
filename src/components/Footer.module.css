@@ -1,0 +1,271 @@
+.footer {
+  position: relative;
+  padding: 26px 20px;
+  background: linear-gradient(180deg, #070707 0%, #0a0a0a 100%);
+  color: #ddd;
+  z-index: 10;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap;
+
+  /* Alinha todo o conteúdo ao centro (verticalmente empilhado) */
+  flex-direction: column;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brandLogo {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(230,57,70,0.25));
+}
+
+.brandName {
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.05rem;
+  letter-spacing: 0.6px;
+}
+
+/* Redes sociais */
+.socials {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.socials a:hover {
+  transform: translateY(-3px);
+  color: var(--gold, #ffd700);
+}
+
+/* Crédito */
+.copy {
+  color: #aaa;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.credit {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-left: 12px;
+}
+
+.credit a {
+  color: var(--gold, #ffd700);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.credit a:hover {
+  text-decoration: underline;
+}
+
+/* WhatsApp floating */
+.whatsappBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1200;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  box-shadow: 0 12px 30px rgba(18,140,126,0.35);
+  text-decoration: none;
+  color: #fff;
+}
+
+.whatsappBtn svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Redes sociais em bloco */
+.socialBlock {
+  display: flex;
+  gap: 18px;
+  align-items: center; /* título e lista alinhados no mesmo eixo */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* título "Redes Sociais:" */
+.socialTitle {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.05rem;
+  margin: 0;
+  min-width: auto; /* evita deslocamento lateral */
+  align-self: center;
+}
+
+/* lista horizontal (ícone + texto lado a lado) */
+.socialList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* item da lista ocupa inline */
+.socialItem {
+  margin: 0;
+}
+
+/* link compacto para linha única */
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: color .18s ease, box-shadow .18s ease, transform .12s ease, border-color .18s ease;
+}
+
+/* caixa do ícone levemente menor para encaixar inline */
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  border: 2px solid transparent;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .12s ease;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+/* HOVER: acende borda e glow com a cor principal do site */
+.socialLink:hover,
+.socialLink:focus {
+  color: var(--red, #e63946);
+  transform: translateY(-2px);
+}
+
+.socialLink:hover .iconWrap,
+.socialLink:focus .iconWrap {
+  border-color: var(--red, #e63946);
+  box-shadow:
+    0 8px 30px rgba(230,57,70,0.25),
+    0 0 14px rgba(230,57,70,0.12);
+}
+
+/* responsivo: volta a lista vertical em telas pequenas */
+@media (max-width: 600px) {
+  .socialBlock {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .socialList {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .socialTitle {
+    order: -1;
+  }
+}
+
+/* Right block (copy + credit) */
+.rightBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center; /* centraliza direita (agora no meio) */
+  min-width: auto;
+  text-align: center;
+}
+
+/* centraliza a linha do desenvolvedor */
+.devRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* centraliza bloco de redes e título */
+.socialBlock {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.socialTitle {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.05rem;
+  margin: 0;
+  min-width: auto; /* evita deslocamento lateral */
+  align-self: center;
+}
+
+/* Responsivo: empilha elementos */
+@media (max-width: 900px) {
+  .inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .rightBlock { align-items: center; text-align: center; }
+  .socialBlock { order: 3; }
+  .socialTitle { min-width: auto; }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .brandLogo { height: 44px; }
+  .icon { width: 22px; height: 22px; }
+  .inner { gap: 12px; }
+}

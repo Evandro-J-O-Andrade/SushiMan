@@ -1,0 +1,512 @@
+:root {
+  --primary-color: #8B0000;
+  --secondary-color: #FFD700;
+  --text-color: #FFFFFF;
+  --button-hover: #B22222;
+  --background-color: #000000;
+  --red: #e63946;
+  --gold: #FFD700;
+  --dark: #0a0a0a;
+  --accent: #ff6b6b;
+  --bg-dark: #1a1a1a;
+}
+
+/* =============================
+   HEADER FIXO
+============================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-align: left; /* sobrescreve o text-align:center do #root */
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left; /* garante logo e nome no canto esquerdo */
+}
+
+.logo {
+  width: 50px;
+  max-width: 100%;
+}
+
+.siteName {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Menu horizontal */
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--secondary-color); /* dourado */
+}
+
+/* =============================
+   HERO SECTION
+============================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(".src/assets/img/bannersemfund.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  scroll-margin-top: 80px; /* compensa header fixo */
+}
+
+/* =============================
+   HERO SECTION - VERSÃO CORRIGIDA
+============================= */
+.heroContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* Aumentei o padding-top para empurrar o conteúdo pra baixo do banner */
+  padding: 180px 20px 80px;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay escuro para melhor contraste com texto */
+.heroContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    rgba(10, 10, 10, 0.4) 0%,
+    rgba(10, 10, 10, 0.6) 50%,
+    rgba(10, 10, 10, 0.8) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+  padding-bottom: 100px;
+}
+
+/* LOGO/MARCA SEM FUNDO */
+.logoMarcaWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: slideInLeft 0.8s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logoMarca {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  filter: drop-shadow(0 25px 50px rgba(230, 57, 70, 0.4))
+          drop-shadow(0 0 40px rgba(255, 215, 0, 0.25));
+  transition: all 0.4s ease;
+  object-fit: contain;
+  animation: floatMarca 3.5s ease-in-out infinite;
+}
+
+@keyframes floatMarca {
+  0%, 100% {
+    transform: translateY(0px) rotateZ(-1deg);
+  }
+  50% {
+    transform: translateY(-25px) rotateZ(1deg);
+  }
+}
+
+.logoMarcaWrapper:hover .logoMarca {
+  filter: drop-shadow(0 35px 70px rgba(230, 57, 70, 0.6))
+          drop-shadow(0 0 60px rgba(255, 215, 0, 0.4));
+  transform: scale(1.08);
+}
+
+/* TEXTO HERO - CENTRALIZADO */
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  animation: slideInUp 0.8s ease;
+  text-align: center;
+  max-width: 800px;
+  margin-top: 40px; /* desce o bloco de texto um pouco mais */
+  z-index: 3;
+  max-width: 880px;
+  width: 100%;
+  padding: 0 16px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Ajuste adicional: desloca o texto um pouco para baixo sem alterar fonte */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroTitle {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--text-color);
+  line-height: 1.15;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--red) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: glowText 3s ease-in-out infinite;
+}
+
+@keyframes glowText {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(230, 57, 70, 0.8));
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.8px;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* BOTÕES CTA */
+.ctaButtons {
+  display: flex;
+  gap: 25px;
+  margin-top: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 18px 50px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  display: inline-block;
+  border: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--red) 0%, var(--accent) 100%);
+  color: var(--text-color);
+  box-shadow: 0 12px 35px rgba(230, 57, 70, 0.5);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 18px 55px rgba(230, 57, 70, 0.7);
+}
+
+.btnSecondary {
+  background: rgba(255, 215, 0, 0.15);
+  color: var(--secondary-color);
+  border: 2.5px solid var(--secondary-color);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 215, 0, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+}
+
+.btnPrimary:active,
+.btnSecondary:active {
+  transform: translateY(-3px) scale(0.97);
+}
+
+/* DECORAÇÃO FLUTUANTE */
+.decoration {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.decorItem {
+  font-size: 5rem;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+}
+
+.decorItem:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.decorItem:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.decorItem:nth-child(3) {
+  animation-delay: 2.4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(8deg);
+  }
+}
+
+/* =============================
+   CARDÁPIO
+============================= */
+.cardapio {
+  padding: 100px 40px 60px;
+  background-color: rgba(20, 20, 20, 0.95);
+  text-align: center;
+}
+
+.cardapio h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+}
+
+/* evita overflow nos cards do cardápio (frituras) */
+.cardapioItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  align-items: flex-start; /* alinha cards pelo topo evitando estourar por diferenças de altura */
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.cardapioItem {
+  background-color: rgba(0,0,0,0.6);
+  padding: 18px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 260px; /* limita largura do card */
+  min-width: 180px; /* evita encolher demais */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden; /* evita que conteúdo vaze */
+  word-break: break-word;
+}
+
+/* Ajustes para evitar corte do preço nos cards (ex.: Yakitori) */
+.cardapioItem {
+  /* manter overflow:hidden para evitar conteúdo vazar, mas dar mais espaço interno */
+  padding: 18px;            /* aumenta espaço interno para o preço */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Permite que efeitos visuais do preço não sejam cortados */
+.cardFooter,
+.card-footer,
+.card .cardFooter {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  overflow: visible; /* permite sombra/efeito do price sem ser cortado */
+}
+
+/* Grupo de info ajustado para encolher corretamente no flex */
+.infoGroup {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-right: 8px; /* garante separação do preço */
+}
+
+/* Preço fixa à direita: garantir que não quebre e tenha padding para não ser cortado */
+.priceTag,
+.cardapioItem .priceTag {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: var(--gold, #FFD700);
+  font-weight: 900;
+  margin-left: 8px;
+  padding-right: 8px;   /* evita que o texto encoste no canto */
+  display: inline-block;
+  z-index: 5;           /* ficar acima de outros elementos */
+}
+
+/* Caso o brilho/text-shadow esteja grande, reduzir levemente em telas pequenas */
+@media (max-width: 768px) {
+  .priceTag {
+    font-size: 1rem;
+    padding-right: 6px;
+  }
+}
+
+/* =============================
+   RODAPÉ
+============================= */
+.footer {
+  padding: 25px 40px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.85);
+  color: var(--secondary-color); /* dourado */
+  font-size: 0.9rem;
+}
+
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 1024px) {
+  .heroContainer {
+    padding: 120px 15px 60px;
+  }
+  .heroText {
+    margin-top: 20px;
+  }
+}
+
+/* RESPONSIVO - Mobile */
+@media (max-width: 768px) {
+  .heroContainer {
+    padding: 80px 12px 40px;
+    background-attachment: scroll;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    text-align: center;
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+
+  .decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroContainer {
+    padding: 70px 10px 30px;
+  }
+
+  .heroTitle {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 14px 25px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+}

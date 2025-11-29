@@ -1,0 +1,35 @@
+.appContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.mainContent {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100%;
+  scroll-margin-top: 100px;
+  transition: all 0.3s ease;
+}
+
+/* reset útil para evitar overflow inesperado */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* impede scroll horizontal causado por textos longos */
+html, body {
+  overflow-x: hidden;
+}
+
+/* regras globais de quebra de linha */
+p, h1, h2, h3, h4, h5, h6, span, a, li {
+  overflow-wrap: anywhere; /* permite quebra em qualquer lugar se necessário */
+  word-break: break-word;
+  hyphens: auto;
+}

@@ -1,0 +1,39 @@
+.hero {
+  height: 80vh;
+  background-image: url("/img/background-japones.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+}
+
+.box h2 {
+  font-size: 44px;
+  color: #b3001b;
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #b3001b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #e4001b;
+}
