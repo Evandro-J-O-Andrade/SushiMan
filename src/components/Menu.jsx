@@ -126,7 +126,7 @@ const menuItems = {
         "Uma seleção premium do Chef. Inclui Sashimis variados (Salmão, Atum, Peixe Branco), Nigiris, Jyo, Uramakis e Hossomakis. Decoração especial.",
       serves: "2 a 3 pessoas",
       price: "R$ 120,00",
-      imageName: "pratocombosushi",
+      imageName: "barcogrande",
     },
     {
       id: 12,
@@ -135,7 +135,7 @@ const menuItems = {
         "O equilíbrio perfeito para o almoço ou jantar. 4 Sashimis de Salmão, 4 Nigiris, 4 Uramakis Califórnia e 4 Hossomakis de Pepino.",
       serves: "1 pessoa",
       price: "R$ 58,00",
-      imageName: "pratotemasushi",
+      imageName: "combinado",
     },
   ],
   entradas: [
