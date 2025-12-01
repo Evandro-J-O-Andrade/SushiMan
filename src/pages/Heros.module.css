@@ -1,0 +1,443 @@
+:root {
+  --red: #e63946;
+  --gold: #FFD700;
+  --dark: #0a0a0a;
+  --text: #ffffff;
+  --accent: #ff6b6b;
+}
+
+/* =============================
+   HERO CONTAINER
+============================= */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* 🚩 CORREÇÃO PRINCIPAL: Alinha o conteúdo ao topo para respeitar o padding-top */
+  justify-content: flex-start; 
+  
+  /* [3. Navbar não tampa a imagem]: Empurra o conteúdo abaixo da navbar fixa */
+  padding-top: 90px; 
+  
+  background-color: var(--dark);
+  position: relative;
+  overflow: hidden; 
+}
+
+/* =============================
+   IMAGEM DE FUNDO
+============================= */
+/* [2. Banner responsivo]: Remove as media queries fixas e deixa o wrapper full-size */
+.bannerWrapper {
+  position: absolute;
+  inset: 0; 
+  width: 100%;
+  height: 100%; /* Ocupa 100% da altura de .hero (que é min-height: 100vh) */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transform: translateZ(0); 
+}
+
+/* =============================
+   OVERLAY (Escurecimento)
+============================= */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 2; 
+}
+
+/* =============================
+   CONTEÚDO (Texto, Títulos, Botões)
+============================= */
+.content {
+  text-align: center;
+  max-width: 800px;
+  color: var(--text);
+  position: relative; 
+  z-index: 3;
+  /* [1. Texto mais baixo]: Empurra o bloco de texto 140px para baixo
+     (contando a partir do padding-top de 90px do .hero). */
+  margin-top: 430px; 
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.highlight {
+  color: var(--gold); 
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: #f0f0f0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Botões (Estilos mantidos) */
+.buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btnPrimary {
+  background: var(--red);
+  color: var(--text);
+  border: 2px solid var(--red);
+}
+
+.btnPrimary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.btnSecondary:hover {
+  background: var(--gold);
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 900px) {
+  .title {
+    font-size: 2.8rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  /* Ajuste o .content para telas menores se o texto estiver muito baixo */
+  .content {
+    margin-top: 100px; 
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 85vh; 
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    padding: 14px 30px;
+  }
+
+  /* Ajuste para mobile */
+  .content {
+    margin-top: 50px; /* Reduz a margem para caber melhor na tela */
+  }
+}/* =============================
+   RESPONSIVO AVANÇADO
+============================= */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+}:root {
+  --red: #e63946;
+  --gold: #FFD700;
+  --dark: #0a0a0a;
+  --text: #ffffff;
+  --accent: #ff6b6b;
+}
+
+/* =============================
+   HERO CONTAINER
+============================= */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  /* Removemos o padding vertical e usamos 'justify-content: center' para centralizar */
+  padding: 0 20px; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  
+  background-color: var(--dark);
+  position: relative;
+  overflow: hidden; /* Importante para o banner absoluto */
+}
+
+/* =============================
+   IMAGEM DE FUNDO
+============================= */
+.bannerWrapper {
+  position: absolute;
+  inset: 0; /* Atalho para top: 0; right: 0; bottom: 0; left: 0; */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra todo o wrapper */
+  /* Removemos o border-radius para ser uma imagem de fundo full-screen */
+  
+  /* EFEITO PARALLAX: Adiciona um efeito suave de fixação */
+  transform: translateZ(0); /* Garante que a imagem está em sua própria camada */
+}
+
+/* =============================
+   OVERLAY (Escurecimento)
+============================= */
+.overlay {
+    position: absolute;
+    inset: 0;
+    /* Gradiente sutil do preto na base ao semi-transparente no topo */
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 2; /* Fica acima do banner, abaixo do conteúdo */
+}
+
+/* =============================
+   CONTEÚDO (Texto, Títulos, Botões)
+============================= */
+.content {
+  text-align: center;
+  max-width: 800px;
+  color: var(--text);
+  position: relative; /* Para ficar acima do overlay */
+  z-index: 3;
+  
+  /* Ajuste vertical para compensar o header fixo, se necessário. */
+  padding-top: 50px; 
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.highlight {
+  color: var(--gold); /* Usamos gold (FFD700) para manter o padrão */
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: #f0f0f0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Botões */
+.buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btnPrimary {
+  background: var(--red);
+  color: var(--text);
+  border: 2px solid var(--red);
+}
+
+.btnPrimary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.btnSecondary:hover {
+  background: var(--gold);
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 900px) {
+  .title {
+    font-size: 2.8rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 85vh; /* Ajuste para mobile */
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    padding: 14px 30px;
+  }
+}@media (max-width: 600px) {
+  .hero {
+    min-height: 85vh; /* Ajuste para mobile */
+  }
+  /* ... outros estilos ... */
+}
+/* =============================
+   MOBILE (max-width: 600px)
+   Substituir banner por logomarca
+============================= */
+@media (max-width: 600px) {
+
+  /* 1. OCULTA O BANNER GRANDE */
+  .bannerWrapper {
+    display: none !important;
+  }
+
+  /* 2. HERO AJUSTADO PARA RECEBER A LOGO COMO FUNDO */
+  .hero {
+    min-height: 60vh;       /* altura ideal sem fundo preto */
+    background-color: var(--dark);
+
+    background-image: url('../assets/img/logomarca2semfundo.png');
+    background-repeat: no-repeat;
+    background-position: center 65%;  /* alinha certinho no topo */
+    background-size: 100%;           /* tamanho da logo */
+    
+    padding-top: 110px; /* compensa menu fixo */
+  }
+
+  /* 3. OVERLAY MAIS SUAVE (para não escurecer demais a logo) */
+  .overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.6) 0%,
+      rgba(0,0,0,0.8) 100%
+    );
+  }
+
+  /* 4. AJUSTE DO TEXTO (centralização perfeita no mobile) */
+  .content {
+    margin-top: 70px;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

@@ -71,7 +71,7 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background-image: url(".src/assets/img/bannersemfund.png");
+  
   background-size: cover;
   background-position: center;
   display: flex;
