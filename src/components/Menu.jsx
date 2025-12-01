@@ -59,7 +59,7 @@ const menuItems = {
         "Macarrão frito na chapa com mix de vegetais frescos (repolho, cenoura, brócolis) e tiras de carne e frango, envolvidos em molho especial da casa.",
       serves: "1 pessoa (generoso)",
       price: "R$ 42,00",
-      imageName: "ramen", // usa imagem ramen como placeholder para noodles
+      imageName: "yakisoba", // usa imagem ramen como placeholder para noodles
     },
     {
       id: 5,
@@ -77,7 +77,7 @@ const menuItems = {
         "Macarrão fino de trigo sarraceno. Pode ser servido frio (Zaru Soba) com molho tsuyu para mergulhar, ou quente em caldo leve com cogumelos shiitake.",
       serves: "1 pessoa",
       price: "R$ 40,00",
-      imageName: "combo",
+      imageName: "ramen",
     },
   ],
   frituras: [
@@ -92,12 +92,12 @@ const menuItems = {
     },
     {
       id: 8,
-      name: "Kushikatsu Misto",
+      name: "Combo Tempura Mix Crocante",
       description:
-        "Espetinhos variados (carne, lótus e queijo) empanados em farinha panko crocante e fritos. Acompanha molho tonkatsu denso e repolho picado.",
+        "Impossível comer um só! Nosso mix traz o equilíbrio perfeito entre camarões suculentos e legumes selecionados (como cenoura, abóbora e batata-doce), fritos na hora para garantir aquela crocância irresistível sem perder a suculência. Perfeito para compartilhar.",
       serves: "2 pessoas(petisco)",
       price: "R$ 38,00",
-      imageName: "combo",
+      imageName: "tempura",
     },
     {
       id: 9,
@@ -229,6 +229,7 @@ const menuItems = {
       price: "R$ 18,00",
       imageName: "umeshu",
     },
+    
   ],
 };
 

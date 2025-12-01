@@ -243,4 +243,320 @@
   .nav a::after {
     inset: -8px -10px;
   }
+}:root {
+  --red: #e63946;
+  --gold: #FFD700;
+  --text-color: #fff;
+  --dark: #0a0a0a;
+  --accent: #ff6b6b;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* LOGO + SITE NAME */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.logo {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.45));
+}
+
+.logo:hover {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.75));
+}
+
+.siteName {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 2px;
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(230,57,70,0.4);
+}
+
+/* NAV DESKTOP */
+.nav {
+  display: flex;
+  gap: 36px;
+}
+
+.nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--red);
+  transform: translateY(-3px);
+}
+
+/* HAMBURGER MOBILE */
+.menuMobileBtn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menuMobileBtn img {
+  width: 36px;
+  height: 36px;
+}
+
+/* OVERLAY MOBILE */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1200;
+}
+
+.panel {
+  width: 280px;
+  max-width: 85%;
+  background: linear-gradient(180deg, #0f0f0f, #121212);
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: slideInRight 0.26s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(30%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.panelList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panelLink {
+  color: var(--text-color);
+  font-weight: 800;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.panelLink:hover {
+  color: var(--red);
+  background: rgba(230,57,70,0.08);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .menuMobileBtn { display: inline-flex; }
+}
+:root {
+  --red: #e63946;
+  --gold: #FFD700;
+  --text: #ffffff;
+  --accent: #ff6b6b;
+}
+
+/* =============================
+   HEADER FIXO
+============================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+}
+.logoImg {
+  height: 120px; /* maior para mobile também */
+  width: auto;
+  filter: drop-shadow(0 0 12px var(--gold));
+  transition: all 0.3s ease;
+}
+.logoImg:hover {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 0 20px var(--gold));
+}
+.siteName {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--red), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+/* Navbar desktop */
+.nav {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 8px 0;
+  transition: color 0.3s;
+  white-space: nowrap; /* impede quebra */
+}
+.nav a:hover {
+  color: var(--gold);
+}
+
+/* =============================
+   MENU MOBILE
+============================= */
+.menuBtn {
+  display: none; /* escondido no desktop */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.menuBtn img {
+  width: 60px; /* maior agora */
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px var(--gold)) drop-shadow(0 0 4px var(--red));
+  transition: all 0.3s ease;
+}
+.menuBtn:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay transparente */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0,0,0,0); /* transparente */
+  z-index: 1500;
+}
+
+/* Side panel lateral */
+.sidePanel {
+  width: 260px;
+  background: rgba(0,0,0,0.75); /* semi-transparente */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+  animation: slideInRight 0.26s cubic-bezier(.2,.9,.3,1);
+}
+.sidePanel a {
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.sidePanel a:hover {
+  color: var(--gold);
+  background: rgba(255,215,0,0.1);
+  transform: translateX(-3px);
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(20%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* =============================
+   MEDIA QUERY MOBILE
+============================= */
+@media (max-width: 513px) {
+  .nav {
+    display: none;      /* esconde nav desktop */
+  }
+  .menuBtn {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 514px) {
+  .overlay, .sidePanel {
+    display: none;
+  }
+}
+
+/* Responsividade navbar desktop: evita quebra de letras */
+@media (max-width: 1024px) {
+  .nav {
+    gap: 20px;
+  }
+  .nav a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav a {
+    font-size: 0.95rem;
+  }
 }
