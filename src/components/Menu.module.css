@@ -1,3 +1,37 @@
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove sublinhado e cor padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove bullets de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Garante que imagens nunca estourem o container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset básico do body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* se quiser */
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Estilos globais */
 :root {
   --red: #e63946;

@@ -1,3 +1,45 @@
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --red: #e63946;
+  --gold: #FFD700;
+  --dark: #0a0a0a;
+  --text: #ffffff;
+  --accent: #ff6b6b;
+}
+
+
+/* Remove sublinhado e cor padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove bullets de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Garante que imagens nunca estourem o container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset básico do body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* se quiser */
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --red: #e63946;        /* Vermelho oriental vibrante */
   --gold: #FFD700;       /* Dourado radiante */
@@ -34,6 +76,7 @@
 
 /* LOGO + NOME DO SITE */
 .logo {
+  
   display: flex;
   align-items: center;
   gap: 18px;
@@ -64,7 +107,7 @@
 
 .siteName {
   font-size: 2.8rem;
-  font-weight: 900;
+  font-weight: 00;
   background: linear-gradient(135deg, var(--red) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -279,7 +322,7 @@
 .logoContainer {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1px;
   text-decoration: none;
 }
 
@@ -387,7 +430,7 @@
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
+@media (max-width: 839px) {
   .nav { display: none; }
   .menuMobileBtn { display: inline-flex; }
 }
@@ -531,7 +574,7 @@
 /* =============================
    MEDIA QUERY MOBILE
 ============================= */
-@media (max-width: 513px) {
+@media (max-width: 850px) {
   .nav {
     display: none;      /* esconde nav desktop */
   }
@@ -540,9 +583,10 @@
   }
 }
 
-@media (min-width: 514px) {
+@media (min-width: 851px) {
   .overlay, .sidePanel {
     display: none;
+    
   }
 }
 
@@ -559,4 +603,116 @@
   .nav a {
     font-size: 0.95rem;
   }
+}
+/* Header.module.css - Ajustes no Panel e Overlay */
+
+/* OVERLAY (Fundo semi-transparente, não toma a tela) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); /* Fundo semi-transparente para ver o conteúdo por baixo */
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1200;
+}
+
+/* PAINEL (Não toma a tela toda) */
+.panel {
+  width: 150px; /* Largura fixa para não tomar a tela toda */
+  max-width: 85%;
+  height: 172px; /* Ocupa a altura total do viewport */
+  background: var(--dark); /* Fundo escuro opaco para o painel */
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.7);
+  animation: slideInRight 0.26s ease-out forwards;
+  /* Garante que o painel não fique em cima do header (se o painel não for dentro do header) */
+  margin-top: 0; 
+  position: relative; 
+}
+
+/* Garante que o painel feche ao clicar fora (a lógica JS já faz, mas o CSS não deve interferir) */
+/* O .overlay (que é o que está "fora" do painel) deve cobrir a tela. */
+
+.panelLink {
+  color: var(--gold); 
+  /* ... */
+}
+/* ... (Mantenha o resto dos estilos de panel) ... *//* Header.module.css */
+
+/* ... (Estilos para :root, .header, .logo, .nav, etc.) ... */
+
+/* =============================
+   MENU MOBILE (550px)
+============================= */
+
+/* Escondido por padrão no desktop */
+.menuMobileBtn {
+  display: none; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  /* Garante que o botão hamburger não seja afetado pelo tamanho do logo */
+  flex-shrink: 0; 
+  z-index: 1001; /* Mantém acima da navegação */
+}
+
+/* 🎯 PONTO DE ATAQUE 1: O BOTÃO E O ÍCONE (550px) */
+@media (max-width: 843px) {
+  /* Oculta o menu desktop */
+  .nav {
+    display: none; 
+  }
+  
+  /* Exibe o botão e o empurra para a direita */
+  .menuMobileBtn {
+    display: inline-flex;
+    margin-left: auto; /* Empurra para o canto direito */
+  }
+  
+  /* 🎯 PONTO DE ATAQUE 2: O MENU.PNG (Estilização e Animação Oriental) */
+  .menuMobileBtn img {
+    height: 55px; /* Tamanho do ícone */
+    width: auto;
+    /* ANIMAÇÃO ORIENTAL: Efeito de brilho dourado */
+    filter: drop-shadow(0 0 8px var(--gold)); 
+    transition: all .3s ease;
+  }
+  
+  /* Efeito ao passar o mouse ou focar (mais brilho e rotação suave) */
+  .menuMobileBtn:hover img,
+  .menuMobileBtn:focus img {
+    filter: drop-shadow(0 0 15px var(--red)); /* Brilho vermelho vibrante */
+    transform: scale(1.1) rotate(5deg); /* Rotação sutil e zoom */
+  }
+  
+  /* ... (outros estilos de logo menor, etc.) ... */
+}
+/* Header.module.css */
+
+/* ... (Estilos do overlay e panel) ... */
+
+/* =======================================
+   RESPONSIVIDADE (Ajuste do Ponto de Quebra)
+======================================= */
+
+/* Se o ponto de quebra do menu desktop/mobile for 850px, use 850px.
+   Se o ponto de quebra do menu desktop/mobile for 840px, use 840px.
+   Vou usar o 850px que definimos anteriormente para consistência.
+*/
+@media (min-width: 851px) {
+  /* GARANTE QUE O MENU MOBILE DESAPAREÇA EM TELAS DE DESKTOP/TABLET */
+  .overlay {
+    display: none !important; /* Força a ocultação quando a tela é 
+    grande */
+    
+  }
+}
+
+/* Oculta o nav mobile e exibe o botão hamburger APENAS até 550px */
+@media (max-width: 550px) {
+  /* ... (Mantenha o resto das regras de 550px: .nav {display: none}, .menuMobileBtn {display: inline-flex} ) ... */
 }

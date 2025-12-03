@@ -20,7 +20,9 @@ export default function Header({ onNavigate }) {
       if (e.key === "Escape") setMenuOpen(false);
     };
     const handleClickOutside = (e) => {
-      if (panelRef.current && !panelRef.current.contains(e.target)) {
+      // Verifica se o clique não foi dentro do painel
+      if (panelRef.current && !panelRef.current.contains(e.target) && e.target.closest(`.${styles.menuMobileBtn}`) === null) {
+        // Verifica se o clique não foi no botão de abrir/fechar
         setMenuOpen(false);
       }
     };
@@ -68,7 +70,8 @@ export default function Header({ onNavigate }) {
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <img src={menuIcon} alt="" />
+          {/* 🎯 CORRIGIDO: Oculta a imagem do menu.png quando o menu está aberto */}
+          {!menuOpen && <img src={menuIcon} alt="" />}
         </button>
       </div>
 

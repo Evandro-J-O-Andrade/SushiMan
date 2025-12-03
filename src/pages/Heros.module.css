@@ -1,3 +1,37 @@
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove sublinhado e cor padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove bullets de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Garante que imagens nunca estourem o container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset básico do body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* se quiser */
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --red: #e63946;
   --gold: #FFD700;
@@ -11,7 +45,7 @@
 ============================= */
 .hero {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 0 20px; 
   
   display: flex;
@@ -407,10 +441,9 @@
   .hero {
     min-height: 60vh;       /* altura ideal sem fundo preto */
     background-color: var(--dark);
-
-    background-image: url('../assets/img/logomarca2semfundo.png');
+    background-image: url('../assets/img/banner.png');
     background-repeat: no-repeat;
-    background-position: center 65%;  /* alinha certinho no topo */
+    background-position: center 80%;  /* alinha certinho no topo */
     background-size: 100%;           /* tamanho da logo */
     
     padding-top: 110px; /* compensa menu fixo */
@@ -439,5 +472,71 @@
 
   .subtitle {
     font-size: 1rem;
+  }
+}
+
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 1024px) {
+  .heroContainer {
+    padding: 120px 15px 60px;
+  }
+  .heroText {
+    margin-top: 20px;
+  }
+}
+
+/* RESPONSIVO - Mobile */
+@media (max-width: 768px) {
+  .heroContainer {
+    padding: 80px 12px 40px;
+    background-attachment: scroll;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    text-align: center;
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+
+  .decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroContainer {
+    padding: 70px 10px 30px;
+  }
+
+  .heroTitle {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 14px 25px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
   }
 }

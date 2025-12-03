@@ -1,3 +1,37 @@
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove sublinhado e cor padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove bullets de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Garante que imagens nunca estourem o container */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset básico do body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* se quiser */
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .appContainer {
   width: 100%;
   min-height: 100vh;
@@ -32,4 +66,102 @@ p, h1, h2, h3, h4, h5, h6, span, a, li {
   overflow-wrap: anywhere; /* permite quebra em qualquer lugar se necessário */
   word-break: break-word;
   hyphens: auto;
+}/* Global Reset */
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}.appContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.mainContent {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100%;
+  scroll-margin-top: 100px;
+  transition: all 0.3s ease;
+}
+
+/* reset útil para evitar overflow inesperado */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* impede scroll horizontal causado por textos longos */
+html, body {
+  overflow-x: hidden;
+}
+
+/* regras globais de quebra de linha */
+p, h1, h2, h3, h4, h5, h6, span, a, li {
+  overflow-wrap: anywhere; /* permite quebra em qualquer lugar se necessário */
+  word-break: break-word;
+  hyphens: auto;
+}#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */ /* removido para não afetar todas as páginas */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+body {
+  background: #000;
+  font-family: 'Cinzel', 'Georgia', serif; /* fonte elegante */
+}
+
+/* Efeito de lanternas japonesas no fundo (opcional) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(179,0,27,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
